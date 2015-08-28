@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+
+function finder__showVolumeIconsOnDesk {
+  echo "" 
+  echo "Showing icons for hard drives, servers, and removable media on the desktop" 
+  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true 
+}
+
+function finder__showFileExtensions {
+  echo "" 
+  echo "Showing all filename extensions in Finder by default" 
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true 
+}
+
+function finder__showStatusBar {
+  echo "" 
+  echo "Showing status bar in Finder by default" 
+  defaults write com.apple.finder ShowStatusBar -bool true 
+}
+
+function finder__textSelectInPreview {
+  echo "" 
+  echo "Allowing text selection in Quick Look/Preview in Finder by default" 
+  defaults write com.apple.finder QLEnableTextSelection -bool true 
+}
+
+function finder__showPOSIXPath { 
+  echo "" 
+  echo "Displaying full POSIX path as Finder window title" 
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true 
+}
+
+function finder__disableExtChangeWarn {
+  echo "" 
+  echo "Disabling the warning when changing a file extension" 
+  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 
+}
+
+function finder__columnView {
+  echo "" 
+   echo "Use column view in all Finder windows by default" 
+  defaults write com.apple.finder FXPreferredViewStyle Clmv 
+}
+
+function finder__avoidDSStoreOnNetwork {
+  echo "" 
+  echo "Avoiding the creation of .DS_Store files on network volumes" 
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true 
+}
+
+function finder__disableDiskImgCheck {
+  echo "" 
+  echo "Disabling disk image verification" 
+  defaults write com.apple.frameworks.diskimages skip-verify -bool true 
+  defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true 
+  defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true 
+}
+
+function finder__snapeToGridIcons {
+  echo "" 
+  echo "Enabling snap-to-grid for icons on the desktop and in other icon views" 
+  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
+  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
+  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
+}

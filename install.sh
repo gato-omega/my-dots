@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 
+echo "Doing nothing yet... But install running ;-)"
+exit 0
+
 # paths
 dirname=$(pwd)
 lib="/usr/local/lib"

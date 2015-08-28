@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+
+function dock__iconSize {
+  echo "" 
+  echo "Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate" 
+  defaults write com.apple.dock tilesize -int 36 
+}
+
+function dock__speedUpMCAnim {
+  echo "" 
+  echo "Speeding up Mission Control animations and grouping windows by application" 
+  defaults write com.apple.dock expose-animation-duration -float 0.1 
+  defaults write com.apple.dock "expose-group-by-app" -bool true 
+}
+
+function dock__dockAutoHide {
+  echo "" 
+  echo "Setting Dock to auto-hide and removing the auto-hiding delay" 
+  defaults write com.apple.dock autohide -bool true 
+  defaults write com.apple.dock autohide-delay -float 0 
+  defaults write com.apple.dock autohide-time-modifier -float 0 
+}

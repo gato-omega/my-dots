@@ -7,43 +7,43 @@ set -eu
 
 # Apps
 apps=(
-  shimo
-  1password
-  alfred
+#  shimo
+#  1password
+#  alfred
   dropbox
-  google-chrome
-  qlcolorcode
-  screenflick
-  slack
-  transmit
-  appcleaner
-  firefox
-  hazel
-  qlmarkdown
-  seil
-  spotify
+#  google-chrome
+#  qlcolorcode
+#  screenflick
+#  slack
+#  transmit
+#  appcleaner
+#  firefox
+#  hazel
+#  qlmarkdown
+#  seil
+#  spotify
   vagrant
-  arq
-  flash
-  iterm2
-  qlprettypatch
-  shiori
-  sublime-text3
+#  arq
+#  flash
+#  iterm2
+#  qlprettypatch
+#  shiori
+#  sublime-text3
   virtualbox
-  atom
-  flux
-  mailbox
-  qlstephen
-  sketch
-  tower
+#  atom
+#  flux
+#  mailbox
+#  qlstephen
+#  sketch
+#  tower
   vlc
-  cloudup
-  nvalt
-  quicklook-json
-  skype
+#  cloudup
+#  nvalt
+#  quicklook-json
+#  skype
   transmission
-  apikitchen
-  mamp
+#  apikitchen
+#  mamp
 )
 
 # fonts
@@ -105,22 +105,22 @@ main() {
   brew tap caskroom/versions
 
   # Tap the fonts
-  brew tap caskroom/fonts
+#  brew tap caskroom/fonts
 
   # install apps
   echo "installing apps..."
   brew cask install --appdir=$appdir ${apps[@]}
 
   # install fonts
-  echo "installing fonts..."
-  brew cask install ${fonts[@]}
+#  echo "installing fonts..."
+#  brew cask install ${fonts[@]}
 
   # install atom plugins
-  echo "installing atom plugins..."
-  apm install ${atom[@]}
+#  echo "installing atom plugins..."
+#  apm install ${atom[@]}
 
   # link with alfred
-  alfred
+#  alfred
   cleanup
 }
 

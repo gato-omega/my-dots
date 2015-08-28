@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+
+function mail__copyShortAdress {
+  echo "" 
+  echo "Setting email addresses to copy as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app" 
+  defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false 
+}

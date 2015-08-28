@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+
+function screen__passwordRequiredAfterSleep {
+  echo "" 
+  echo "Requiring password immediately after sleep or screen saver begins" 
+  defaults write com.apple.screensaver askForPassword -int 1 
+  defaults write com.apple.screensaver askForPasswordDelay -int 0 
+}
+
+function screen__subpixFontRendering {
+  echo "" 
+  echo "Enabling subpixel font rendering on non-Apple LCDs" 
+  defaults write NSGlobalDomain AppleFontSmoothing -int 2 
+}
+
+function screen__hiDPIDisplay {
+  echo "" 
+  echo "Enable HiDPI display modes (requires restart)" 
+  sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true 
+}
+
