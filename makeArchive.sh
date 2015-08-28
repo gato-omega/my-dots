@@ -10,3 +10,5 @@ mv master.tar.gz archive
 
 git add -A
 git commit -m "makeArchive.$TS"
+
+git push origin master
