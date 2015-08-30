@@ -9,8 +9,6 @@ show_status "Sourcing $lib/symlink/index.sh"  $?
 source "$lib/is-osx/index.sh"
 show_status "$lib/is-osx/index.sh"  $?
 
-show "That's all for now... Continue in $0"
-exit 0
 
 # Only run if on a Mac
 if [[ 0 -eq `osx` ]]; then
@@ -23,6 +21,8 @@ osx="$os/osx"
 
 # Run each program
 sh "$osx/defaults.sh"
+show_status "Sourcing $osx/defaults.sh"  $?
+exit 0
 sh "$osx/binaries.sh"
 sh "$osx/apps.sh"
 

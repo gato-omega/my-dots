@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
-show() {
- printf  "$1\n"
+set -o nounset
+function getScriptAbsoluteDir {
+    # @description used to get the script path
+    # @param $1 the script $0 parameter
+    local script_invoke_path="$1"
+    local cwd=`pwd`
+
+    # absolute path ? if so, the first character is a /
+    if test "x${script_invoke_path:0:1}" = 'x/'
+    then
+        RESULT=`dirname "$script_invoke_path"`
+    else
+        RESULT=`dirname "$cwd/$script_invoke_path"`
+    fi
 }
 
-show_status() {
-GREEN=$(tput setaf 2)
-NORMAL=$(tput sgr0)
-if [ $2 == 0 ]; then
-status=$GREEN[OK]
-else
-status=[KO]
-fi
-line='..................................................................................'
-txt=$1
-printf "%s %s %s\n" "$NORMAL$txt" "${line:${#txt}}" "$status"
-
-}
+script_invoke_path="$0"
+script_name=`basename "$0"`
+getScriptAbsoluteDir "$script_invoke_path"
+script_absolute_dir=$RESULT
+echo $script_absolute_dir
 
 import() { 
     # @description importer routine to get external functionality.
@@ -55,6 +59,7 @@ import() {
         IFS=':'
         for path in $SHELL_LIBRARY_PATH/modules
         do
+echo  $path/$module.shinc
             if test -e "$path/$module.shinc"
             then
                 . "$path/$module.shinc"

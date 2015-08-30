@@ -57,7 +57,6 @@ source $dir/lib/utils/display.sh
 
 
 install_dots
-dots boot osx
 
 
 

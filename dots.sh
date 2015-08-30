@@ -9,6 +9,7 @@ main() {
   export dirname=$(dirname $(realpath $0))
   export lib="$dirname/lib"
   export os="$dirname/os"
+  export SHELL_LIBRARY_PATH="$dirname/lib"
 
   # parse options
   while [[ "$1" =~ ^- ]]; do
@@ -121,7 +122,7 @@ realpath() {
 # open dots(1)
 # TODO use default editor
 open() {
-  atom $dirname
+  vi $dirname
 }
 
 # Call main
