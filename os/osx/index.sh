@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 set -eu
 
+source "$lib/utils/display.sh"
+
 # modules
 source "$lib/symlink/index.sh"
+show_status "Sourcing $lib/symlink/index.sh"  $?
 source "$lib/is-osx/index.sh"
+show_status "$lib/is-osx/index.sh"  $?
+
+show "That's all for now... Continue in $0"
+exit 0
 
 # Only run if on a Mac
 if [[ 0 -eq `osx` ]]; then

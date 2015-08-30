@@ -4,31 +4,12 @@ set -eu
 COLUMNS=$(tput cols)
 printf '\e[8;50;100t'
 
-show() {
- printf  "$1\n"
-}
-
-show_status() {
-GREEN=$(tput setaf 2)
-NORMAL=$(tput sgr0)
-if [ $2 == 0 ]; then
-status=$GREEN[OK]
-else
-status=[KO]
-fi
-line='..................................................................................'
-txt=$1
-printf "%s %s %s\n" "$NORMAL$txt" "${line:${#txt}}" "$status"
-
-}
 
 install_dots() {
 show "Will now install dots to /usr/local/bin"
 move_on
-# paths
-dir=$(dirname $0)
-lib="/usr/local/lib"
-bin="/usr/local/bin"
+
+
 
 # make in case they aren't already there
 
@@ -67,7 +48,12 @@ else
 fi
 }
 
+# paths
+dir=$(dirname $0)
+lib="/usr/local/lib"
+bin="/usr/local/bin"
 
+source $dir/lib/utils/display.sh
 
 
 install_dots

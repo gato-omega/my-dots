@@ -73,8 +73,7 @@ EOF
 # Bootstrap the OS
 boot() {
   if [[ -e "$os/$1/index.sh" ]]; then
-#    sh "$os/$1/index.sh"
-     echo " will execute $os/$1/index.sh"
+    sh "$os/$1/index.sh"
   else
     echo "boot: could not find \"$1\""
     exit 1
