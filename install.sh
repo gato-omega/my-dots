@@ -1,88 +1,78 @@
 #!/usr/bin/env bash
 set -eu
 
+COLUMNS=$(tput cols)
+printf '\e[8;50;100t'
+
+show() {
+ printf  "$1\n"
+}
+
+show_status() {
+GREEN=$(tput setaf 2)
+NORMAL=$(tput sgr0)
+if [ $2 == 0 ]; then
+status=$GREEN[OK]
+else
+status=[KO]
+fi
+line='..................................................................................'
+txt=$1
+printf "%s %s %s\n" "$NORMAL$txt" "${line:${#txt}}" "$status"
+
+}
+
 install_dots() {
+show "Will now install dots to /usr/local/bin"
+move_on
 # paths
 dir=$(dirname $0)
 lib="/usr/local/lib"
 bin="/usr/local/bin"
 
 # make in case they aren't already there
+
 sudo mkdir -p $lib
+show_status "Creating $lib" $?
+
+
 sudo mkdir -p $bin
+show_status "Creating $bin" $?
 
 # Copy the path
+
 sudo cp -R $dir "$lib/"
+show_status "Copying $dir to $lib" $?
 
 # remove existing bin if it exists
 if [ -e "$bin/dots" ]; then
   rm "$bin/dots"
+  show_status "Removing existing $bin/dots" $?
 fi
 
 # symlink dots
+
 ln -s "$lib/dots/dots.sh" "$bin/dots"
-
+show_status "Symlinking $lib/dots/dots.sh to $bin/dots"  $?
 }
 
-show_menu(){
-    NORMAL=`echo "\033[m"`
-    MENU=`echo "\033[36m"` #Blue
-    NUMBER=`echo "\033[33m"` #yellow
-    FGRED=`echo "\033[41m"`
-    RED_TEXT=`echo "\033[31m"`
-    ENTER_LINE=`echo "\033[33m"`
-    echo -e "${MENU}****************************************************************************************************${NORMAL}"
-    echo -e "${MENU}**${NUMBER} 1)${MENU} Install dots                                                                      **${NORMAL}"
-    echo -e "${MENU}**${NUMBER} 2)${MENU} Run dots boot                                                                     **${NORMAL}"                                                                                           
-    echo -e "${MENU}****************************************************************************************************${NORMAL}"
-    echo -e "${ENTER_LINE}Please enter a menu option and enter or ${RED_TEXT}enter to exit. ${NORMAL}"
-    read opt
-}
-function option_picked() {
-    COLOR='\033[01;31m' # bold red
-    RESET='\033[00;00m' # normal white
-    MESSAGE=${@:-"${RESET}Error: No message passed"}
-    echo -e "${COLOR}${MESSAGE}${RESET}"
-}
-function parse_choice() {
-while [ opt != '' ]
-    do
-    if [[ $opt = "" ]]; then 
-            exit;
-    else
-        case $opt in
-        1) clear;
-        option_picked "Install dots";
-        install_dots
-        show_menu;
-        ;;
+move_on() {
+read -p "Do you want to continue? " -n 1 -r
 
-        2) clear;
-            option_picked "Run dots boot";
-            dots boot osx
-        show_menu;
-            ;;
-
-        x)exit;
-        ;;
-
-        \n)exit;
-        ;;
-
-        *)clear;
-        option_picked "Pick an option from the menu";
-        show_menu;
-        ;;
-    esac
+if [ ! [ $REPLY == ^[Yy] ] ]
+then
+    exit 0
+else
+   clear
 fi
-done
 }
 
-printf '\e[8;30;100t'
-clear
 
-show_menu
-parse_choice
+
+
+install_dots
+dots boot osx
+
 
 
 
