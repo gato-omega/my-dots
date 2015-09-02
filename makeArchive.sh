@@ -3,7 +3,7 @@
 TS=$(date +"%Y-%m-%d_%H-%M-%S")
 CMD=
 
-tar -cf master.tar ../dots
+tar -cf master.tar ./*
 gzip master.tar
 rm archive/*
 mv master.tar.gz archive

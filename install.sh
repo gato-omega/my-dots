@@ -22,8 +22,8 @@ show_status "Creating $bin" $?
 
 # Copy the path
 
-sudo cp -R $dir "$lib/"
-show_status "Copying $dir to $lib" $?
+sudo cp -R $dir/dots "$lib/"
+show_status "Copying $dir/lib to $lib" $?
 
 # remove existing bin if it exists
 if [ -e "$bin/dots" ]; then
@@ -49,11 +49,11 @@ fi
 }
 
 # paths
-dir=$(dirname $0)
+dir=$(pwd)/$(dirname $0)
 lib="/usr/local/lib"
 bin="/usr/local/bin"
 
-source $dir/lib/utils/display.sh
+source $dir/dots/lib/utils/display.sh
 
 
 install_dots
