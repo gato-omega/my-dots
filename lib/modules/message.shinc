@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-source $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
-source $SHELL_LIBRARY_PATH/display.sh
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function message__disableAutoEmoji {
   defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false 

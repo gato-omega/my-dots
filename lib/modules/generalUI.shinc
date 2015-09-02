@@ -58,7 +58,7 @@ function generalUI__disableAutoTerminate {
 
 function generalUI__saveToDisk {
   defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false 
-  shwo_status "Saving to disk (not to iCloud) by default" "$?"
+  show_status "Saving to disk (not to iCloud) by default" "$?"
 }
 
 function generalUI__hostInfoOnLogin {

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
-source $SHELL_LIBRARY_PATH/utils/display.sh¬
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 
 function finder__showVolumeIconsOnDesk {
