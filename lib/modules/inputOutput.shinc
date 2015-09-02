@@ -1,45 +1,40 @@
 #!/usr/bin/env bash
-. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function inputOutput__incrBluetoothSound {
-  echo "" 
-  echo "Increasing sound quality for Bluetooth headphones/headsets" 
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40 
+  show_status "Increasing sound quality for Bluetooth headphones/headsets" "$?"
 }
 
 function inputOutput__fullKeyboardControl {
-  echo "" 
-  echo "Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)" 
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 
+  show_status "Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)" "$?"
 }
 
 function inputOutput__disablePressAndHold {
-  echo "" 
-  echo "Disabling press-and-hold for keys in favor of a key repeat" 
   defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false 
+  show_status "Disabling press-and-hold for keys in favor of a key repeat" "$?"
 }
 
 function inputOutput__keyboardFastRepeat {
-  echo "" 
-  echo "Setting a blazingly fast keyboard repeat rate (ain't nobody got time fo special chars while coding!)" 
   defaults write NSGlobalDomain KeyRepeat -int 0 
+  show_status "Setting a blazingly fast keyboard repeat rate (ain't nobody got time fo special chars while coding!)" "$?"
 }
 
 function inputOutput__disableAutoCorrect {
-  echo "" 
-  echo "Disabling auto-correct" 
   defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false 
+  show_status "Disabling auto-correct" "$?"
 }
 
 function inputOutput__trackpadSpeed {
-  echo "" 
-  echo "Setting trackpad & mouse speed to a reasonable number" 
   defaults write -g com.apple.trackpad.scaling 2 
   defaults write -g com.apple.mouse.scaling 2.5 
+  show_status "Setting trackpad & mouse speed to a reasonable number" "$?"
 }
 
 function inputOutput__keyboardLightSleep {
-  echo "" 
-  echo "Turn off keyboard illumination when computer is not used for 5 minutes" 
   defaults write com.apple.BezelServices kDimTime -int 300 
+  show_status "Turn off keyboard illumination when computer is not used for 5 minutes" "$?"
 }

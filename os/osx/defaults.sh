@@ -94,8 +94,6 @@ echo "This script will make your Mac awesome"
 import "generalUI"
 
 generalUI__disableGK
-echo "That's all for now.... Keep editing basename $0"
-exit 0
 generalUI__saveToDisk
 generalUI__dailySoftUpdate
 

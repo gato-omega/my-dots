@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
-. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function spotlight__disableIdxNewVolume {
-  echo "" 
-  echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before." 
   # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume. 
   sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes" 
+  show_status "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before." "$?"
 }
 
 function spotlight__changeIndexingOrder {
-  echo "" 
-  echo "Change indexing order and disable some search results" 
   # Yosemite-specific search results (remove them if your are using OS X 10.9 or older): 
   # 	MENU_DEFINITION 
   # 	MENU_CONVERSION 
@@ -42,13 +40,8 @@ function spotlight__changeIndexingOrder {
 	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \ 
 	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}' 
 
-  echo "" 
-  echo "Load new settings before rebuilding the index" 
   killall mds > /dev/null 2>&1 
-  echo "" 
-  echo "Make sure indexing is enabled for the main volume" 
   sudo mdutil -i on / > /dev/null 
-  echo "" 
-  echo "Rebuild the index from scratch" 
   sudo mdutil -E / > /dev/null 
+  show_status "Change indexing order and disable some search results" "$?"
 }

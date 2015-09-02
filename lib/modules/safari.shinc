@@ -1,59 +1,50 @@
 #!/usr/bin/env bash
-. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function safari__hideBookmrkBar {
-  echo "" 
-  echo "Hiding Safari's bookmarks bar by default" 
   defaults write com.apple.Safari ShowFavoritesBar -bool false 
+  show_status "Hiding Safari's bookmarks bar by default" "$?"
 }
 
 function safari__hideSideBar {
-  echo "" 
-  echo "Hiding Safari's sidebar in Top Sites" 
   defaults write com.apple.Safari ShowSidebarInTopSites -bool false 
+  show_status "Hiding Safari's sidebar in Top Sites" "$?"
 }
 
 function safari__disableThumbCache {
-  echo "" 
-  echo "Disabling Safari's thumbnail cache for History and Top Sites" 
   defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2 
+  show_status "Disabling Safari's thumbnail cache for History and Top Sites" "$?"
 }
 
 function safari__enableDebugMenu {
-  echo "" 
-  echo "Enabling Safari's debug menu" 
   defaults write com.apple.Safari IncludeInternalDebugMenu -bool true 
+  show_status "Enabling Safari's debug menu" "$?"
 }
 
 function safari__searchBannerContains {
-  echo "" 
-  echo "Making Safari's search banners default to Contains instead of Starts With" 
   defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false 
+  show_status "Making Safari's search banners default to Contains instead of Starts With" "$?"
 }
 
 function safari__removeUselessBookmarks {
-  echo "" 
-  echo "Removing useless icons from Safari's bookmarks bar" 
   defaults write com.apple.Safari ProxiesInBookmarksBar "()" 
+  show_status "Removing useless icons from Safari's bookmarks bar" "$?"
 }
 
 function safari__backspaceToPrevious {
-  echo "" 
-  echo "Allow hitting the Backspace key to go to the previous page in history" 
   defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true 
+  show_status "Allow hitting the Backspace key to go to the previous page in history" "$?"
 }
 
 function safari__enableDevMenu {
-  echo "" 
-  echo "Enabling the Develop menu and the Web Inspector in Safari" 
   defaults write com.apple.Safari IncludeDevelopMenu -bool true 
   defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true 
   defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true 
+  show_status "Enabling the Develop menu and the Web Inspector in Safari" "$?"
 }
 
 function safari__webInspectorCtxtMenu {
-  echo "" 
-  echo "Adding a context menu item for showing the Web Inspector in web views" 
   defaults write NSGlobalDomain WebKitDeveloperExtras -bool true 
-
+  show_status "Adding a context menu item for showing the Web Inspector in web views" "$?"
 }

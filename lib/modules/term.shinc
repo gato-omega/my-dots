@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
-. $SHELL_LIBRARY_PATH/avoidDoubleInclusion.sh
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function term__utf8Only {
-  echo "" 
-  echo "Enabling UTF-8 ONLY in Terminal.app and setting the Pro theme by default" 
   defaults write com.apple.terminal StringEncodings -array 4 
   defaults write com.apple.Terminal "Default Window Settings" -string "Pro" 
   defaults write com.apple.Terminal "Startup Window Settings" -string "Pro" 
+  show_status "Enabling UTF-8 ONLY in Terminal.app and setting the Pro theme by default" "$?"
 }
 
 function term__disableQuitPrompt {
-  echo "" 
-  echo "Don’t display the annoying prompt when quitting iTerm" 
   defaults write com.googlecode.iterm2 PromptOnQuit -bool false 
-
+  show_status "Don't display the annoying prompt when quitting iTerm" "$?"
 }
