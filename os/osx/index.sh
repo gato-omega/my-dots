@@ -34,3 +34,4 @@ if [[ ! -e "$HOME/.bash_profile" ]]; then
 else
   echo "$HOME/.bash_profile already exists. remove and run again."
 fi
+
