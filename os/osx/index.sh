@@ -22,8 +22,8 @@ osx="$os/osx"
 # Run each program
 sh "$osx/defaults.sh"
 show_status "Sourcing $osx/defaults.sh"  $?
+show_status "$osx/binaries.sh"
 exit 0
-sh "$osx/binaries.sh"
 sh "$osx/apps.sh"
 
 # Symlink the profile

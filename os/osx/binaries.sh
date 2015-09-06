@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -eu
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
 
 #
 # Binary installer
@@ -7,26 +9,32 @@ set -eu
 
 # Check for Homebrew
 if test ! $(which brew); then
-  echo "Installing homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  show_status "Installing homebrew" "$?"
 fi
 
 # Update homebrew
 brew update && brew upgrade brew-cask
+show_status "Updating homebrew" "$?"
 
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
+show_status "Installing GNU coreutils" "$?"
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
+show_status "Installing findutils" "$?"
 
 # Install Bash 4
 brew install bash
+show_status "Installing Bash" "$?"
 
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
-
+show_status "Installing dupes' grep" "$?"
+echo "That's all..."
+exit 0
 # Install other useful binaries
 binaries=(
 #  graphicsmagick
