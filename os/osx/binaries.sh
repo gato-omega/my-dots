@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -eu
+echo "binaries"
 source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
@@ -33,8 +34,6 @@ show_status "Installing Bash" "$?"
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 show_status "Installing dupes' grep" "$?"
-echo "That's all..."
-exit 0
 # Install other useful binaries
 binaries=(
 #  graphicsmagick
@@ -60,6 +59,7 @@ binaries=(
 
 # Install the binaries
 brew install ${binaries[@]}
+show_status "Installing brew binaries" "$?"
 
 # Add osx specific command line tools
 #if test ! $(which subl); then

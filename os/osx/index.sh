@@ -20,9 +20,12 @@ fi
 osx="$os/osx"
 
 # Run each program
+echo "bef def"
 sh "$osx/defaults.sh"
+echo "aft def"
 show_status "Sourcing $osx/defaults.sh"  $?
-show_status "$osx/binaries.sh"
+sh "$osx/binaries.sh"
+show_status "$osx/binaries.sh" $?
 exit 0
 sh "$osx/apps.sh"
 
