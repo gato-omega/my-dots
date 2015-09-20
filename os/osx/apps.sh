@@ -12,6 +12,7 @@ apps=(
 #  alfred
   dropbox
 #  google-chrome
+   gmail
 #  qlcolorcode
 #  screenflick
 #  slack
@@ -25,7 +26,7 @@ apps=(
   vagrant
 #  arq
 #  flash
-#  iterm2
+  iterm2
 #  qlprettypatch
 #  shiori
 #  sublime-text3
@@ -48,9 +49,10 @@ apps=(
 
 # fonts
 fonts=(
-  font-m-plus
-  font-clear-sans
-  font-roboto
+  font-sauce-code-powerline
+#  font-m-plus
+#  font-clear-sans
+#  font-roboto
 )
 
 # Atom packages
@@ -99,7 +101,7 @@ main() {
   # Install homebrew-cask
   echo "installing cask..."
   brew tap phinze/homebrew-cask
-  brew install brew-cask
+  brew reinstall brew-cask
 
   # Tap alternative versions
   brew tap caskroom/versions
@@ -109,11 +111,14 @@ main() {
 
   # install apps
   echo "installing apps..."
-  brew cask install --appdir=$appdir ${apps[@]}
+  brew cask reinstall --appdir=$appdir ${apps[@]}
 
   # install fonts
-#  echo "installing fonts..."
-#  brew cask install ${fonts[@]}
+  echo "installing fonts..."
+  brew cask install ${fonts[@]}
+  # install mackup
+   echo "installing mackup..."
+   pip install mackup
 
   # install atom plugins
 #  echo "installing atom plugins..."

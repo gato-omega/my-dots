@@ -26,8 +26,11 @@ echo "aft def"
 show_status "Sourcing $osx/defaults.sh"  $?
 sh "$osx/binaries.sh"
 show_status "$osx/binaries.sh" $?
-exit 0
 sh "$osx/apps.sh"
+show_status "Sourcing $osx/apps.sh" $?
+cp $osx/dotfiles/* $HOME
+show_status "Copying dotfiles to $HOME" $?
+exit 0
 
 # Symlink the profile
 if [[ ! -e "$HOME/.bash_profile" ]]; then
