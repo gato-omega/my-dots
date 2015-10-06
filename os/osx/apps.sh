@@ -7,55 +7,55 @@ set -eu
 
 # Apps
 apps=(
-#  shimo
-#  1password
-#  alfred
-  dropbox
-#  google-chrome
-   gmail
-#  qlcolorcode
-#  screenflick
-#  slack
-#  transmit
-#  appcleaner
-#  firefox
-#  hazel
-#  qlmarkdown
-#  seil
-#  spotify
-  vagrant
-#  arq
-#  flash
-  iterm2
-#  qlprettypatch
-#  shiori
-#  sublime-text3
-  virtualbox
-#  atom
-#  flux
-#  mailbox
-#  qlstephen
-#  sketch
-#  tower
-  vlc
-#  cloudup
-#  nvalt
-#  quicklook-json
-#  skype
-  transmission
-#  apikitchen
-#  mamp
+ # shimo
+ # 1password
+ # alfred
+ # dropbox
+ # google-chrome
+ #  gmail
+ # qlcolorcode
+ # screenflick
+ # slack
+ # transmit
+ # appcleaner
+ # firefox
+ # hazel
+ # qlmarkdown
+ # seil
+ # spotify
+ # vagrant
+ # arq
+ # flash
+ # iterm2
+ # qlprettypatch
+ # shiori
+ # sublime-text3
+ # virtualbox
+ # atom
+ # flux
+ # mailbox
+ # qlstephen
+ # sketch
+ # tower
+ # vlc
+ # cloudup
+ # nvalt
+ # quicklook-json
+ # skype
+ # transmission
+ # apikitchen
+ # mamp
 )
 
 # fonts
 fonts=(
-  font-sauce-code-powerline
-#  font-m-plus
-#  font-clear-sans
-#  font-roboto
+ # font-sauce-code-powerline
+ # font-m-plus
+ # font-clear-sans
+ # font-roboto
 )
 
-# Atom packages
+# Atom packages # - not using atom right now
 atom=(
   advanced-railscasts-syntax
   atom-beautify
@@ -117,8 +117,8 @@ main() {
   echo "installing fonts..."
   brew cask install ${fonts[@]}
   # install mackup
-   echo "installing mackup..."
-   pip install mackup
+  echo "installing mackup..."
+  pip install mackup
 
   # install atom plugins
 #  echo "installing atom plugins..."
