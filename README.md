@@ -4,6 +4,8 @@
 
 WIP bootstrapping library for osx & ubuntu (and maybe others!)
 
+My dots repository, taken from [https://github.com/pierrelepair](https://github.com/pierrelepair), original repo/author is: [https://github.com/matthewmueller/dots](https://github.com/matthewmueller/dots) not forked to not mess up everybody's network graph for now.
+
 ## Installation
 
 One-liner:
@@ -61,3 +63,8 @@ The Ubuntu build does the following:
 # License
 
 MIT
+
+Taken from [https://github.com/pierrelepair](https://github.com/pierrelepair).
+Original author/repo at: [https://github.com/matthewmueller/dots](https://github.com/matthewmueller/dots)
+
+Not forked to not mess up everybody's network graph for now.
