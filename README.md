@@ -28,7 +28,7 @@ The OSX build does the following:
 
 - install homebrew
 - installs binaries (graphicsmagick, python, sshfs, ack, git, etc.)
-- sets OSX defaults
+- sets OSX defaults (seems taken from [https://gist.github.com/brandonb927/3195465](https://gist.github.com/brandonb927/3195465))
 - installs applications via `homebrew-cask` (one-password, sublime-text, virtualbox, nv-alt, iterm2, etc.)
 - sets up the ~/.bash_profile
 
