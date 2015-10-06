@@ -36,25 +36,25 @@ brew reinstall homebrew/dupes/grep
 show_status "Installing dupes' grep" "$?"
 # Install other useful binaries
 binaries=(
-#  graphicsmagick
-#  boot2docker
-#  webkit2png
-#  phantomjs
-#  rename
-#  zopfli
-#  ffmpeg
-  python
-#  mongo
-#  sshfs
-#  trash
-#  node
-#  tree
-#  hub
-#  ack
-  git
-#  hub
-#  fig
-#  go
+  # graphicsmagick
+  # boot2docker
+  # webkit2png
+  # phantomjs
+  # rename
+  # zopfli
+  # ffmpeg
+  # python
+  # mongo
+  # sshfs
+  # trash
+  # node
+  # tree
+  # hub
+  # ack
+  # git
+  # hub
+  # fig
+  # go
 )
 
 # Install the binaries
