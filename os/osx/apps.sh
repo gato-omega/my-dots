@@ -7,44 +7,44 @@ set -eu
 
 # Apps
 apps=(
- # shimo
- # 1password
- # alfred
- # dropbox
- # google-chrome
- #  gmail
- # qlcolorcode
- # screenflick
- # slack
- # transmit
- # appcleaner
- # firefox
- # hazel
- # qlmarkdown
- # seil
- # spotify
- # vagrant
- # arq
- # flash
- # iterm2
- # qlprettypatch
- # shiori
- # sublime-text3
- # virtualbox
- # atom
- # flux
- # mailbox
- # qlstephen
- # sketch
- # tower
- # vlc
- # cloudup
- # nvalt
- # quicklook-json
- # skype
- # transmission
- # apikitchen
- # mamp
+  # shimo
+  # 1password
+  # alfred
+  # dropbox
+  # google-chrome
+  # gmail
+  # qlcolorcode
+  # screenflick
+  # slack
+  # transmit
+  # appcleaner
+  # firefox
+  # hazel
+  # qlmarkdown
+  # seil
+  # spotify
+  # vagrant
+  # arq
+  # flash
+  # iterm2
+  # qlprettypatch
+  # shiori
+  # sublime-text3
+  # virtualbox
+  # atom
+  # flux
+  # mailbox
+  # qlstephen
+  # sketch
+  # tower
+  # vlc
+  # cloudup
+  # nvalt
+  # quicklook-json
+  # skype
+  # transmission
+  # apikitchen
+  # mamp
 )
 
 # fonts
@@ -53,39 +53,40 @@ fonts=(
  # font-m-plus
  # font-clear-sans
  # font-roboto
+ font-inconsolata
 )
 
 # Atom packages # - not using atom right now
 atom=(
-  advanced-railscasts-syntax
-  atom-beautify
-  cmd-9
-  color-picker
-  css-comb
-  docblockr
-  easy-motion
-  editor-stats
-  emmet
-  fancy-new-file
-  file-icons
-  git-history
-  highlight-selected
-  image-view
-  inc-dec-value
-  key-peek
-  language-jade
-  linter
-  markdown-preview
-  merge-conflicts
-  neutron-ui
-  npm-install
-  react
-  vim-mode
-  zentabs
+  # advanced-railscasts-syntax
+  # atom-beautify
+  # cmd-9
+  # color-picker
+  # css-comb
+  # docblockr
+  # easy-motion
+  # editor-stats
+  # emmet
+  # fancy-new-file
+  # file-icons
+  # git-history
+  # highlight-selected
+  # image-view
+  # inc-dec-value
+  # key-peek
+  # language-jade
+  # linter
+  # markdown-preview
+  # merge-conflicts
+  # neutron-ui
+  # npm-install
+  # react
+  # vim-mode
+  # zentabs
 )
 
 # Specify the location of the apps
-appdir="/Applications"
+# appdir="/Applications" # this seems to be the default? # we will see
 
 # Check for Homebrew
 if test ! $(which brew); then
@@ -100,18 +101,24 @@ main() {
 
   # Install homebrew-cask
   echo "installing cask..."
-  brew tap phinze/homebrew-cask
-  brew reinstall brew-cask
+  # brew tap phinze/homebrew-cask # old commands?
+  # brew reinstall brew-cask      # old commands?
 
-  # Tap alternative versions
+  # See https://github.com/caskroom/homebrew-cask, now it is installed as:
+  brew reinstall caskroom/cask/brew-cask
+
+  # Tap alternative versions https://github.com/caskroom/homebrew-versions
+  # this lets you install previous versions of apps
   brew tap caskroom/versions
 
   # Tap the fonts
-#  brew tap caskroom/fonts
+  brew tap caskroom/fonts
 
   # install apps
-  echo "installing apps..."
-  brew cask reinstall --appdir=$appdir ${apps[@]}
+  echo "installing apps with brew cask..."
+  brew cask install ${apps[@]}
+  # brew cask reinstall --appdir=$appdir ${apps[@]} # do not install in /Applications
+  # brew cask reinstall --appdir=$appdir ${apps[@]} # the reinstall subcommand exists?
 
   # install fonts
   echo "installing fonts..."
@@ -121,11 +128,11 @@ main() {
   pip install mackup
 
   # install atom plugins
-#  echo "installing atom plugins..."
-#  apm install ${atom[@]}
+  # echo "installing atom plugins..."
+  # apm install ${atom[@]}
 
-  # link with alfred
-#  alfred
+  # homebrew cask link with alfred
+  # alfred
   cleanup
 }
 
