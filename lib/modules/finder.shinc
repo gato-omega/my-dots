@@ -5,55 +5,55 @@ source $SHELL_LIBRARY_PATH/utils/display.sh
 
 
 function finder__showVolumeIconsOnDesk {
-  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true 
+  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
   show_status "Showing icons for hard drives, servers, and removable media on the desktop"·"$?"
 }
 
 function finder__showFileExtensions {
-  defaults write NSGlobalDomain AppleShowAllExtensions -bool true 
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
   show_status "Showing all filename extensions in Finder by default" "$?"
 }
 
 function finder__showStatusBar {
-  defaults write com.apple.finder ShowStatusBar -bool true 
+  defaults write com.apple.finder ShowStatusBar -bool true
   show_status "Showing status bar in Finder by default" "$?"
 }
 
 function finder__textSelectInPreview {
-  defaults write com.apple.finder QLEnableTextSelection -bool true 
+  defaults write com.apple.finder QLEnableTextSelection -bool true
   show_status "Allowing text selection in Quick Look/Preview in Finder by default" "$?"
 }
 
-function finder__showPOSIXPath { 
-  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true 
+function finder__showPOSIXPath {
+  defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
   show_status "Displaying full POSIX path as Finder window title" "$?"
 }
 
 function finder__disableExtChangeWarn {
-  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 
+  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
   show_status "Disabling the warning when changing a file extension" "$?"
 }
 
 function finder__columnView {
-  defaults write com.apple.finder FXPreferredViewStyle Clmv 
+  defaults write com.apple.finder FXPreferredViewStyle Clmv
   show_status "Use column view in all Finder windows by default" "$?"
 }
 
 function finder__avoidDSStoreOnNetwork {
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true 
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
   show_status "Avoiding the creation of .DS_Store files on network volumes" "$?"
 }
 
 function finder__disableDiskImgCheck {
-  defaults write com.apple.frameworks.diskimages skip-verify -bool true 
-  defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true 
-  defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true 
+  defaults write com.apple.frameworks.diskimages skip-verify -bool true
+  defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+  defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
   show_status "Disabling disk image verification" "$?"
 }
 
-function finder__snapeToGridIcons {
-  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
-  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
-  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 
+function finder__snapToGridIcons {
+  /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
   show_status "Enabling snap-to-grid for icons on the desktop and in other icon views" "$?"
 }

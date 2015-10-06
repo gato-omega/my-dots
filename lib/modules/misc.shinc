@@ -3,35 +3,41 @@ source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function misc__disableHibernate {
-  sudo pmset -a hibernatemode 0 
+  sudo pmset -a hibernatemode 0
   show_status "Disable hibernation (speeds up entering sleep mode)" "$?"
 }
 
 function misc__removeSleepImage {
-  sudo rm /private/var/vm/sleepimage 
-  sudo touch /private/var/vm/sleepimage 
-  sudo chflags uchg /private/var/vm/sleepimage 
+  sudo rm /private/var/vm/sleepimage
+  sudo touch /private/var/vm/sleepimage
+  sudo chflags uchg /private/var/vm/sleepimage
   show_status "Remove the sleep image file to save disk space" "$?"
 }
 
 function misc__disableMotionSensor {
-  sudo pmset -a sms 0 
+  sudo pmset -a sms 0
   show_status "Disable the sudden motion sensor as it's not useful for SSDs" "$?"
 }
 
-function misc__speedUpWakeFromSleep {
-  # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/ 
-  sudo pmset -a standbydelay 86400 
+function misc__speedUpWakeFromSleep24 {
+  # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+  sudo pmset -a standbydelay 86400
   show_status "Speeding up wake from sleep to 24 hours from an hour" "$?"
 }
 
+function misc__speedUpWakeFromSleep12 {
+  # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+  sudo pmset -a standbydelay 43200
+  show_status "Speeding up wake from sleep to 12 hours from an hour" "$?"
+}
+
 function misc__disableComputerSleep {
-  sudo pmset -a sleep 0 
-  sudo pmset -a displaysleep 0 
+  sudo pmset -a sleep 0
+  sudo pmset -a displaysleep 0
   show_status "Disable computer sleep and stop the display from shutting off" "$?"
 }
 
 function misc__disableChromeBackswipe {
-  defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false 
+  defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
   show_status "Disable annoying backswipe in Chrome" "$?"
 }

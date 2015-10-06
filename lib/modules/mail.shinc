@@ -2,7 +2,7 @@
 source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
-function mail__copyShortAdress {
-  defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false 
+function mail__copyShortAddress {
+  defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
   show_status "Setting email addresses to copy as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app" "$?"
 }

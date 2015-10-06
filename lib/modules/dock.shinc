@@ -4,20 +4,20 @@ source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function dock__iconSize {
-  defaults write com.apple.dock tilesize -int 36 
+  defaults write com.apple.dock tilesize -int 36
   show_status "Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate" "$?"
 }
 
 function dock__speedUpMCAnim {
-  defaults write com.apple.dock expose-animation-duration -float 0.1 
-  defaults write com.apple.dock "expose-group-by-app" -bool true 
+  defaults write com.apple.dock expose-animation-duration -float 0.1
+  defaults write com.apple.dock "expose-group-by-app" -bool true
   show_status "Speeding up Mission Control animations and grouping windows by application" "$?"
 }
 
 
 function dock__dockAutoHide {
-  defaults write com.apple.dock autohide -bool true 
-  defaults write com.apple.dock autohide-delay -float 0 
-  defaults write com.apple.dock autohide-time-modifier -float 0 
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide-delay -float 0
+  defaults write com.apple.dock autohide-time-modifier -float 0
   show_status "Setting Dock to auto-hide and removing the auto-hiding delay" "$?"
 }

@@ -8,6 +8,6 @@ function timeMachine__disableUseNewDrivePrompt {
 }
 
 function timeMachine__disableLocalBackup {
-  hash tmutil &> /dev/null && sudo tmutil disablelocal 
+  hash tmutil &> /dev/null && sudo tmutil disablelocal
   show_status "Disabling local Time Machine backups" "$?"
 }

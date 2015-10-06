@@ -3,18 +3,19 @@ source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function screen__passwordRequiredAfterSleep {
-  defaults write com.apple.screensaver askForPassword -int 1 
-  defaults write com.apple.screensaver askForPasswordDelay -int 0 
+  defaults write com.apple.screensaver askForPassword -int 1
+  defaults write com.apple.screensaver askForPasswordDelay -int 0
   show_status "Requiring password immediately after sleep or screen saver begins" "$?"
 }
 
 function screen__subpixFontRendering {
-  defaults write NSGlobalDomain AppleFontSmoothing -int 2 
+  defaults write NSGlobalDomain AppleFontSmoothing -int 2
   show_status "Enabling subpixel font rendering on non-Apple LCDs" "$?"
 }
 
 function screen__hiDPIDisplay {
-  sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true 
+  sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+  # sudo defaults write /Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool true
   show_status "Enable HiDPI display modes (requires restart)" "$?"
 }
 

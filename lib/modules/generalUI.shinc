@@ -2,83 +2,90 @@
 source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
+# Available icons
+# "/System/Library/CoreServices/Menu Extras/TimeMachine.menu",
+# "/System/Library/CoreServices/Menu Extras/Bluetooth.menu",
+# "/System/Library/CoreServices/Menu Extras/AirPort.menu",
+# "/System/Library/CoreServices/Menu Extras/Volume.menu",
+# "/System/Library/CoreServices/Menu Extras/Battery.menu",
+# "/System/Library/CoreServices/Menu Extras/TextInput.menu",
+# "/System/Library/CoreServices/Menu Extras/Clock.menu",
+# "/System/Library/CoreServices/Menu Extras/User.menu"
 function generalUI__removeIcons {
-  for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do 
-    defaults write "${domain}" dontAutoLoad -array \ 
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \ 
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \ 
-    "/System/Library/CoreServices/Menu Extras/User.menu" 
-  done 
-  defaults write com.apple.systemuiserver menuExtras -array \ 
+  for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+    defaults write "${domain}" dontAutoLoad -array \
+    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+    "/System/Library/CoreServices/Menu Extras/User.menu"
+  done
+  defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \.
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \ 
-  "/System/Library/CoreServices/Menu Extras/Clock.menu" 
+  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+  "/System/Library/CoreServices/Menu Extras/Clock.menu"
   show_status "Hide the Time Machine, Volume, User, and Bluetooth icons" "$?"
 }
 
 function generalUI__disableGK {
-  sudo spctl --master-disable 
-  sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no 
-  defaults write com.apple.LaunchServices LSQuarantine -bool false 
-  show_status  "Disabling OS X Gate Keeper" "$?"
+  sudo spctl --master-disable
+  sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
+  defaults write com.apple.LaunchServices LSQuarantine -bool false
+  show_status "Disabling OS X Gate Keeper" "$?"
 }
 
 function generalUI__incrWindResize {
-  defaults write NSGlobalDomain NSWindowResizeTime -float 0.001 
+  defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
   show_status "Increasing the window resize speed for Cocoa applications" "$?"
 }
 
 function generalUI__expSavePanel {
-  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true 
-  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true 
-  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true 
+  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+  defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
   show_status "Expanding the save panel by default" "$?"
 }
 
 function generalUI__autoQuitPrinter {
-  defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true 
+  defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
   show_status "Automatically quit printer app once the print jobs complete" "$?"
 }
 
 function generalUI__showCtrlChars {
-  defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true 
+  defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
   show_status "Displaying ASCII control characters using caret notation in standard text views" "$?"
 }
 
 function generalUI__disableSysResume {
-  defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false 
+  defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
   show_status "Disabling system-wide resume" "$?"
 }
 
 function generalUI__disableAutoTerminate {
-  defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true 
+  defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
   show_status "Disabling automatic termination of inactive apps" "$?"
 }
 
-
 function generalUI__saveToDisk {
-  defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false 
+  defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
   show_status "Saving to disk (not to iCloud) by default" "$?"
 }
 
 function generalUI__hostInfoOnLogin {
-  sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName 
+  sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
   show_status "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window" "$?"
 }
 
 function generalUI__sleepModeOff {
-  systemsetup -setcomputersleep Off > /dev/null 
+  systemsetup -setcomputersleep Off > /dev/null
   show_status "Never go into computer sleep mode" "$?"
 }
 
 function generalUI__dailySoftUpdate {
-  defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1 
+  defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
   show_status "Check for software updates daily, not just once per week" "$?"
 }
 
-
 function generalUI__disableSmartQuotes {
-  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false 
-  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false 
+  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
   show_status "Disable smart quotes and smart dashes as they're annoying when typing code" "$?"
 }
