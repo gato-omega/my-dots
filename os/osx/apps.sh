@@ -7,44 +7,56 @@ set -eu
 
 # Apps
 apps=(
-  # shimo
-  # 1password
-  # alfred
-  # dropbox
-  # google-chrome
-  # gmail
+  # shimo                # VPN client http://www.feingeist.io/shimo/
+  # 1password            # password manager https://agilebits.com/onepassword
+  alfred               # Alfred
+  dropbox              # Dropbox
+  google-chrome        # Google Chrome browser
+
+  #### Quicklook Enhancements Begin
+
   # qlcolorcode
-  # screenflick
-  # slack
-  # transmit
-  # appcleaner
-  # firefox
-  # hazel
-  # qlmarkdown
-  # seil
-  # spotify
-  # vagrant
-  # arq
-  # flash
-  # iterm2
-  # qlprettypatch
-  # shiori
-  # sublime-text3
-  # virtualbox
-  # atom
-  # flux
-  # mailbox
   # qlstephen
-  # sketch
-  # tower
-  # vlc
-  # cloudup
-  # nvalt
+  # qlmarkdown
   # quicklook-json
-  # skype
-  # transmission
-  # apikitchen
-  # mamp
+  # qlprettypatch
+  # quicklook-csv
+  # betterzipql
+  # webpquicklook
+  # suspicious-package
+
+  #### Quicklook Enhancements End
+
+  # gmail
+  # screenflick          # Video/desktop recording software http://www.araelium.com/screenflick
+  slack                # Slack(#)
+  # transmit             # SFTP client and more https://panic.com/transmit/
+  # appcleaner           # Cleans files and apps http://www.macupdate.com/app/mac/25276/appcleaner
+  # firefox              # Firefox browser
+  # hazel                # Automatic filing https://www.noodlesoft.com/hazel.php
+  # seil                 # Change CAPS-LOCK key (e.g. to ESC), https://github.com/tekezo/Seil
+  # karabiner            # Keyboard mappings customizer https://github.com/tekezo/Karabiner
+  # spotify
+  # vagrant              # Vagrant
+  # arq                  # Backup tool https://www.arqbackup.com/
+  # flash                # Adobe Flash https://github.com/caskroom/homebrew-cask/blob/master/Casks/flash.rb
+  # iterm2               # iTerm2 terminal replacement app
+  # shiori               # Pinboard and Delicious OS X client http://aki-null.net/shiori/
+  sublime-text         # Sublime Text 2
+  # sublime-text3        # Sublime Text 3
+  # virtualbox           # Virtualbox
+  # atom                 # Atom text/code editor
+  flux                 # Human friendly screen luminosity https://justgetflux.com/
+  # mailbox
+  # sketch              # Digital design app, http://www.sketchapp.com/
+  # tower               # git client http://www.git-tower.com
+  # vlc                 # VLC (Video Lan Player)
+  # cloudup             # Share stuff https://cloudup.com
+  # nvalt               # Some app to write quicker http://brettterpstra.com/projects/nvalt/
+  skype               # Skype
+  # transmission        # BitTorrent Client http://www.transmissionbt.com/
+  # cyberduck           # Libre FTP, SFTP, WebDAV, S3, Azure & OpenStack Swift browser https://cyberduck.io/
+  quicksilver         # Progressive autolearning shortcuts for OS X http://qsapp.com/
 )
 
 # fonts
@@ -120,19 +132,22 @@ main() {
   # brew cask reinstall --appdir=$appdir ${apps[@]} # do not install in /Applications
   # brew cask reinstall --appdir=$appdir ${apps[@]} # the reinstall subcommand exists?
 
+  # restart quicklook manager for quicklook (ql) enhancements to take effect
+  qlmanage -r
+
   # install fonts
   echo "installing fonts..."
   brew cask install ${fonts[@]}
   # install mackup
-  echo "installing mackup..."
-  pip install mackup
+  # echo "installing mackup..."
+  # pip install mackup
 
   # install atom plugins
   # echo "installing atom plugins..."
   # apm install ${atom[@]}
 
   # homebrew cask link with alfred
-  # alfred
+  alfred
   cleanup
 }
 
