@@ -3,48 +3,58 @@ source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
 
 function safari__hideBookmrkBar {
-  defaults write com.apple.Safari ShowFavoritesBar -bool false 
+  defaults write com.apple.Safari ShowFavoritesBar -bool false
   show_status "Hiding Safari's bookmarks bar by default" "$?"
 }
 
 function safari__hideSideBar {
-  defaults write com.apple.Safari ShowSidebarInTopSites -bool false 
+  defaults write com.apple.Safari ShowSidebarInTopSites -bool false
   show_status "Hiding Safari's sidebar in Top Sites" "$?"
 }
 
 function safari__disableThumbCache {
-  defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2 
+  defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
   show_status "Disabling Safari's thumbnail cache for History and Top Sites" "$?"
 }
 
 function safari__enableDebugMenu {
-  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true 
+  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
   show_status "Enabling Safari's debug menu" "$?"
 }
 
 function safari__searchBannerContains {
-  defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false 
+  defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
   show_status "Making Safari's search banners default to Contains instead of Starts With" "$?"
 }
 
 function safari__removeUselessBookmarks {
-  defaults write com.apple.Safari ProxiesInBookmarksBar "()" 
+  defaults write com.apple.Safari ProxiesInBookmarksBar "()"
   show_status "Removing useless icons from Safari's bookmarks bar" "$?"
 }
 
 function safari__backspaceToPrevious {
-  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true 
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
   show_status "Allow hitting the Backspace key to go to the previous page in history" "$?"
 }
 
 function safari__enableDevMenu {
-  defaults write com.apple.Safari IncludeDevelopMenu -bool true 
-  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true 
-  defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true 
+  defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+  defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
   show_status "Enabling the Develop menu and the Web Inspector in Safari" "$?"
 }
 
 function safari__webInspectorCtxtMenu {
-  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true 
+  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
   show_status "Adding a context menu item for showing the Web Inspector in web views" "$?"
+}
+
+function safari__disableWebkit2Java {
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+  show_status "Disabling Safari WebKit2Java" "$?"
+}
+
+function safari__disableWebkit2JavaLocalFiles {
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
+  show_status "Disabling Safari WebKit2JavaForLocalFiles" "$?"
 }
