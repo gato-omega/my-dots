@@ -9,8 +9,6 @@ install_dots() {
 show "Will now install dots to /usr/local/bin"
 move_on
 
-
-
 # make in case they aren't already there
 
 sudo mkdir -p $lib
@@ -55,9 +53,4 @@ bin="/usr/local/bin"
 
 source $dir/dots/lib/utils/display.sh
 
-
 install_dots
-
-
-
-
