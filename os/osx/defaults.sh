@@ -199,7 +199,7 @@ mail__copyShortAddress
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
-# import "spotlight"
+import "spotlight"
 
 spotlight__disableIdxNewVolume
 # spotlight__changeIndexingOrder
