@@ -12,6 +12,7 @@ apps=(
   alfred               # Alfred
   dropbox              # Dropbox
   google-chrome        # Google Chrome browser
+  google-chrome-canary # Google Chrome Canary
 
   #### Quicklook Enhancements Begin
 
