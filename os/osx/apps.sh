@@ -121,17 +121,17 @@ main() {
   # brew tap phinze/homebrew-cask # old commands?
   # brew reinstall brew-cask      # old commands?
 
-  # See https://github.com/caskroom/homebrew-cask, now it is installed as:
-  set +e
-  brew install caskroom/cask/brew-cask
-  set -e
-
   # Tap alternative versions https://github.com/caskroom/homebrew-versions
   # this lets you install previous versions of apps
   brew tap caskroom/versions
 
   # Tap the fonts
   brew tap caskroom/fonts
+  # See https://github.com/caskroom/homebrew-cask, now it is installed as:
+  set +e
+  brew install caskroom/cask/brew-cask
+  set -e
+
 
   # install apps
   echo "installing apps with brew cask..."
