@@ -967,14 +967,14 @@ defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2
 # Kill affected applications                                                  #
 ###############################################################################
 
-set +e
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-    "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-    "Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-    "Transmission" "Twitter" "iCal"; do
-    killall "${app}" > /dev/null 2>&1
-done
-set -e
+# set +e
+# for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+#     "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+#     "Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+#     "Transmission" "Twitter" "iCal"; do
+#     killall "${app}" > /dev/null 2>&1
+# done
+# set -e
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 
