@@ -7,7 +7,7 @@ source "$lib/utils/display.sh"
 source "$lib/symlink/index.sh"
 show_status "Sourcing $lib/symlink/index.sh"  $?
 source "$lib/is-osx/index.sh"
-show_status "$lib/is-osx/index.sh"  $?
+show_status "$lib/is-osx/index.sh" $?
 
 
 # Only run if on a Mac
