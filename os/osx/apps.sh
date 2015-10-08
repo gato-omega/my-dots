@@ -44,7 +44,7 @@ apps=(
   # shiori               # Pinboard and Delicious OS X client http://aki-null.net/shiori/
   sublime-text         # Sublime Text 2
   # sublime-text3        # Sublime Text 3
-  # virtualbox           # Virtualbox
+  virtualbox           # Virtualbox
   # atom                 # Atom text/code editor
   flux                 # Human friendly screen luminosity https://justgetflux.com/
   # mailbox
@@ -57,6 +57,11 @@ apps=(
   # transmission        # BitTorrent Client http://www.transmissionbt.com/
   # cyberduck           # Libre FTP, SFTP, WebDAV, S3, Azure & OpenStack Swift browser https://cyberduck.io/
   quicksilver         # Progressive autolearning shortcuts for OS X http://qsapp.com/
+  imageoptim          # Lossless in-place image compression https://imageoptim.com/
+  # sequel-pro          # MySQL management app http://www.sequelpro.com/
+  spectacle          # Keyboard shortcuts for window management https://github.com/eczarny/spectacle
+  screenflow          # Video editing software http://telestream.net/screenflow/overview.htm
+  gimp               # GIMP, Image editing software
 )
 
 # fonts
@@ -117,7 +122,9 @@ main() {
   # brew reinstall brew-cask      # old commands?
 
   # See https://github.com/caskroom/homebrew-cask, now it is installed as:
-  brew reinstall caskroom/cask/brew-cask
+  set +e
+  brew install caskroom/cask/brew-cask
+  set -e
 
   # Tap alternative versions https://github.com/caskroom/homebrew-versions
   # this lets you install previous versions of apps
