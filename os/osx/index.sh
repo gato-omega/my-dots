@@ -20,17 +20,26 @@ fi
 osx="$os/osx"
 
 # Run each program
-echo "bef def"
 sh "$osx/defaults.sh"
-echo "aft def"
 show_status "Sourcing $osx/defaults.sh"  $?
 sh "$osx/binaries.sh"
 show_status "$osx/binaries.sh" $?
 sh "$osx/apps.sh"
 show_status "Sourcing $osx/apps.sh" $?
-cp $osx/dotfiles/* $HOME
-show_status "Copying dotfiles to $HOME" $?
+# cp $osx/dotfiles/* $HOME
+# show_status "Copying dotfiles to $HOME" $?
+sh "$osx/security.sh"
+show_status "Sourcing $osx/security.sh" $?
+
+sh "$osx/rbenv.sh"
+show_status "Installing $osx/rbenv.sh" $?
+
+echo "Setting Git to use Sublime Text as default editor"
+git config --global core.editor "subl -n -w"
+
 exit 0
+
+# Use dotfiles for the rest, and/or change to dotfiles completely
 
 # Symlink the profile -> use a different one instead
 # if [[ ! -e "$HOME/.bash_profile" ]]; then
