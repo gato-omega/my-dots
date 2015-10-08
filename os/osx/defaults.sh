@@ -78,8 +78,6 @@ import() {
     exit 1
 }
 
-
-
 # Ask for the administrator password upfront
 sudo -v
 
@@ -87,6 +85,22 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "This script will make your Mac awesome"
+
+###############################################################################
+# Computer name setup
+###############################################################################
+
+echo ""
+echo "Would you like to set your computer name (as done via System Preferences >> Sharing)?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  echo "What would you like it to be?"
+  read COMPUTER_NAME
+  sudo scutil --set ComputerName $COMPUTER_NAME
+  sudo scutil --set HostName $COMPUTER_NAME
+  sudo scutil --set LocalHostName $COMPUTER_NAME
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
+fi
 
 ###############################################################################
 # General UI/UX
@@ -172,6 +186,8 @@ safari__removeUselessBookmarks
 safari__backspaceToPrevious
 safari__enableDevMenu
 safari__webInspectorCtxtMenu
+safari__disableWebkit2Java
+safari__disableWebkit2JavaLocalFiles
 
 ###############################################################################
 # Mail
@@ -185,7 +201,7 @@ mail__copyShortAddress
 ###############################################################################
 # import "spotlight"
 
-# spotlight__disableIdxNewVolume
+spotlight__disableIdxNewVolume
 # spotlight__changeIndexingOrder
 
 
