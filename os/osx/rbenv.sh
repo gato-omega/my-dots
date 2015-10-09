@@ -9,9 +9,11 @@ if [ ! $(which git) ]; then
   exit 1
 fi
 
+set +u
 if [ -z "${RBENV_ROOT}" ]; then
   RBENV_ROOT="$HOME/.rbenv"
 fi
+set -u
 
 # Install rbenv:
 if [ ! -d "$RBENV_ROOT" ] ; then
