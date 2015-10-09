@@ -10,10 +10,18 @@ My dots repository, taken from [https://github.com/pierrelepair](https://github.
 
 One-liner:
 
+Currently, no such thing, please `git clone` this project and check it out.
+You may afterwards run.
+
 ```
-(mkdir -p /tmp/dots && cd /tmp/dots && curl -L https://github.com/gato-omega/my-dots/archive/master.tar.gz | tar zx --strip 1 && sh ./install.sh)
+sh dots.sh boot osx
 ```
 
+
+<!-- ```
+(mkdir -p /tmp/dots && cd /tmp/dots && curl -L https://github.com/gato-omega/my-dots/archive/master.tar.gz | tar zx --strip 1 && sh ./install.sh)
+```
+ -->
 ## Design
 
 The goal of dots is to automate the process of getting your operating system from a stock build to a fully functional machine.
