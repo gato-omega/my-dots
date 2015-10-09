@@ -9,9 +9,11 @@ set -eu
 echo "security"
 source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
 source $SHELL_LIBRARY_PATH/utils/display.sh
-
+# if already enabled no worries
+set +e
 sudo fdesetup enable
 show_status "Enabling FileVault 2" "$?"
+set -e
 
 echo "Enabling Application Level Firewall..."
 
