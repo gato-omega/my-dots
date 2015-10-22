@@ -49,12 +49,12 @@ binaries=(
   git                 # git
   hub                 # git+hub (from Github)
   fasd                # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v, https://github.com/clvv/fasd
-  graphicsmagick      # imagemagick alternative, provides some of the same executables
+  # graphicsmagick      # imagemagick alternative, provides some of the same executables
   postgres            # Postgres
   # phantomenv          # PhantomJS version manager (rbenv for phantomjs) # better to just enabled on its own
   jenv                # java version manager (rbenv for java) [javas must be manually added]
   qt                  # qt lib
-  # imagemagick       # watch out for graphicsmagick possible conflicts with executables, http://www.graphicsmagick.org/utilities.html
+  imagemagick       # watch out for graphicsmagick possible conflicts with executables, http://www.graphicsmagick.org/utilities.html
   # boot2docker
   # webkit2png
   # rename
