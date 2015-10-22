@@ -41,7 +41,7 @@ apps=(
   # vagrant              # Vagrant
   # arq                  # Backup tool https://www.arqbackup.com/
   # flash                # Adobe Flash https://github.com/caskroom/homebrew-cask/blob/master/Casks/flash.rb
-  # iterm2               # iTerm2 terminal replacement app
+  iterm2               # iTerm2 terminal replacement app
   # shiori               # Pinboard and Delicious OS X client http://aki-null.net/shiori/
   sublime-text         # Sublime Text 2
   # sublime-text3        # Sublime Text 3
