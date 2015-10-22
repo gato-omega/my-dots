@@ -681,12 +681,12 @@ defaults write com.apple.spotlight orderedItems -array \
     '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
     '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
     '{"enabled" = 0;"name" = "SOURCE";}' \
-    '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-    '{"enabled" = 0;"name" = "MENU_OTHER";}' \
-    '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-    '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-    '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-    '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+    # '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+    # '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+    # '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+    # '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+    # '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+    # '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 
 set +e
 # Load new settings before rebuilding the index
@@ -975,7 +975,4 @@ defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2
 #     killall "${app}" > /dev/null 2>&1
 # done
 # set -e
-echo "Done. Note that some of these changes require a logout/restart to take effect."
-
-
-###############################
+echo "Done. Note that some of these changes require a logout/restart to take effect so please restart after all of this."
