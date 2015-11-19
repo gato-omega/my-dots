@@ -46,6 +46,8 @@ apps=(
   sublime-text         # Sublime Text 2
   # sublime-text3        # Sublime Text 3
   virtualbox           # Virtualbox
+  vagrant              # Vagrant https://www.vagrantup.com/
+  vagrant-manager      # Vagrant manager https://github.com/lanayotech/vagrant-manager
   # atom                 # Atom text/code editor
   flux                 # Human friendly screen luminosity https://justgetflux.com/
   # mailbox
@@ -57,12 +59,13 @@ apps=(
   skype               # Skype
   # transmission        # BitTorrent Client http://www.transmissionbt.com/
   # cyberduck           # Libre FTP, SFTP, WebDAV, S3, Azure & OpenStack Swift browser https://cyberduck.io/
-  quicksilver         # Progressive autolearning shortcuts for OS X http://qsapp.com/
-  imageoptim          # Lossless in-place image compression https://imageoptim.com/
+  quicksilver        # Progressive autolearning shortcuts for OS X http://qsapp.com/
+  imageoptim         # Lossless in-place image compression https://imageoptim.com/
   # sequel-pro          # MySQL management app http://www.sequelpro.com/
   spectacle          # Keyboard shortcuts for window management https://github.com/eczarny/spectacle
   screenflow          # Video editing software http://telestream.net/screenflow/overview.htm
   gimp               # GIMP, Image editing software
+  # rescuetime       # Rescue Time https://www.rescuetime.com
 )
 
 # fonts
