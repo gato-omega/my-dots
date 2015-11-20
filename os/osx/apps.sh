@@ -48,6 +48,7 @@ apps=(
   virtualbox           # Virtualbox
   vagrant              # Vagrant https://www.vagrantup.com/
   vagrant-manager      # Vagrant manager https://github.com/lanayotech/vagrant-manager
+  ngrok                # https://ngrok.com/ and https://ngrok.com/product # Another option: http://www.ultrahook.com/ | Version 2.0 is only available as a cask -> https://github.com/Homebrew/homebrew/issues/39573
   # atom                 # Atom text/code editor
   flux                 # Human friendly screen luminosity https://justgetflux.com/
   # mailbox
